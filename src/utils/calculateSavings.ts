@@ -1,32 +1,30 @@
-// src/utils/calculateSavings.ts
-
 export interface EstimateInput {
-  milesPerYear: number
-  mpg: number
-  gasCost: number
-  electricityCost: number
-  kWhPerMile: number
-  maintenanceSavingsPerYear?: number
+    milesPerYear: number
+    mpg: number
+    gasCost: number
+    electricityCost: number
+    kWhPerMile: number
+    maintenanceSavingsPerYear?: number
 }
 
 export function calculateSavings({
-  milesPerYear,
-  mpg,
-  gasCost,
-  electricityCost,
-  kWhPerMile,
-  maintenanceSavingsPerYear = 500
+    milesPerYear,
+    mpg,
+    gasCost,
+    electricityCost,
+    kWhPerMile,
+    maintenanceSavingsPerYear = 500
 }: EstimateInput) {
-  const gasAnnualCost = (milesPerYear / mpg) * gasCost
-  const evAnnualCost = milesPerYear * kWhPerMile * electricityCost
-  const fuelSavings = gasAnnualCost - evAnnualCost
-  const totalSavings = fuelSavings + maintenanceSavingsPerYear
+    const gasAnnualCost = (milesPerYear / mpg) * gasCost
+    const evAnnualCost = milesPerYear * kWhPerMile * electricityCost
+    const fuelSavings = gasAnnualCost - evAnnualCost
+    const totalSavings = fuelSavings + maintenanceSavingsPerYear
 
-  return {
-    gasAnnualCost,
-    evAnnualCost,
-    fuelSavings,
-    maintenanceSavings: maintenanceSavingsPerYear,
-    totalSavings
-  }
+    return {
+        gasAnnualCost,
+        evAnnualCost,
+        fuelSavings,
+        maintenanceSavings: maintenanceSavingsPerYear,
+        totalSavings
+    }
 }
