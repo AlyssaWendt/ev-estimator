@@ -1,11 +1,4 @@
-export interface EstimateInput {
-    milesPerYear: number
-    mpg: number
-    gasCost: number
-    electricityCost: number
-    kWhPerMile: number
-    maintenanceSavingsPerYear?: number
-}
+import type { EstimateInput } from '../type/types'
 
 export function calculateSavings({
     milesPerYear,
