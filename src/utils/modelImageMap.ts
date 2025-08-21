@@ -9,5 +9,13 @@ export const modelImageMap: Record<string, string> = {
   'Tesla Model 3': tesla,
   'Ford Mustang Mach-E': ford,
   'Nissan Leaf': nissan,
-  'Volkswagen ID.4': vw,
+  'Volkswagen ID.4': vw
+}
+
+// Preload images
+export function preloadVehicleImages() {
+  Object.values(modelImageMap).forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
 }

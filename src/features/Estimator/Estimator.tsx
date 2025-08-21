@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import { calculateSavings } from '../../utils/calculateSavings'
-import ZipInput from './ZipInput'
-import Slider from './Slider'
-import ResultSummary from './Summary'
-import type { EstimateInput, ZappyData } from '../../type/types'
+import { useEffect, useState } from 'react'
 import mockData from '../../data/mockZappyData.json'
+import { calculateSavings } from '../../utils/calculateSavings'
+import { preloadVehicleImages } from '../../utils/modelImageMap'
+import ResultSummary from './Summary'
+import Slider from './Slider'
 import styles from './estimator.module.scss'
-import VehicleSelect from './VehicleSelect'
+import type { EstimateInput, ZappyData } from '../../type/types'
 import VehicleCard from './VehicleCard'
+import VehicleSelect from './VehicleSelect'
+import ZipInput from './ZipInput'
 
 export default function Estimator() {
     const [error, setError] = useState<string | null>(null)
@@ -55,6 +56,9 @@ export default function Estimator() {
     setResults(calculateSavings(input))
     }
 
+    useEffect(() => {
+        preloadVehicleImages()
+    }, [])
 
     return (
         <div className={styles.estimator}>
