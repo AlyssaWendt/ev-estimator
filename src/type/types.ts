@@ -10,8 +10,9 @@ export interface EstimateInput {
 }
 
 export interface EVModel {
-    name: string
-    kWhPerMile: number
+  name: string
+  kWhPerMile: number
+  image: string
 }
 
 export interface ResultSummaryProps {

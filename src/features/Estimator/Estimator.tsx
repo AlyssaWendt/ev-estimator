@@ -7,6 +7,7 @@ import type { EstimateInput, ZappyData } from '../../type/types'
 import mockData from '../../data/mockZappyData.json'
 import styles from './estimator.module.scss'
 import VehicleSelect from './VehicleSelect'
+import VehicleCard from './VehicleCard'
 
 export default function Estimator() {
     const [error, setError] = useState<string | null>(null)
@@ -21,33 +22,39 @@ export default function Estimator() {
 
     const handleCalculate = () => {
     setError(null)
+
     if (!zip.match(/^\d{5}$/)) {
         setError('Please enter a valid 5-digit ZIP code.')
         setResults(null)
         return
     }
+
     if (milesPerDay < 0 || milesPerDay > 100) {
         setError('Miles per day must be between 0 and 100.')
         setResults(null)
         return
     }
+
     if (mpg < 10 || mpg > 60) {
         setError('MPG must be between 10 and 60.')
         setResults(null)
         return
     }
 
+    const selectedEV = entry?.evModels.find((m) => m.name === selectedModel)
+
     const input: EstimateInput = {
         milesPerYear: milesPerDay * 365,
         mpg,
         gasCost: entry?.gasCostPerGallon ?? 4.0,
         electricityCost: entry?.electricityCostPerKWh ?? 0.20,
-        kWhPerMile: 0.28,
+        kWhPerMile: selectedEV?.kWhPerMile ?? 0.28,
         maintenanceSavingsPerYear: 500
     }
 
     setResults(calculateSavings(input))
-  }
+    }
+
 
     return (
         <div className={styles.estimator}>
@@ -59,6 +66,7 @@ export default function Estimator() {
                     onChange={setSelectedModel}
                     evModels={entry?.evModels ?? []}
                 />
+                <VehicleCard model={entry?.evModels.find(m => m.name === selectedModel) ?? { name: 'Select a model', kWhPerMile: 0.28, image: '' }} />
                 <ZipInput zip={zip} onChange={setZip} />
                 <Slider
                 label="Miles Driven Daily"
