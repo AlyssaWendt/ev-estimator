@@ -1,4 +1,5 @@
-import Estimator from './features/Estimator/Estimator'
+import Estimator from './features/Estimator'
+import './styles/index.scss'
 
 function App() {
 
