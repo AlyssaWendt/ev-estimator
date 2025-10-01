@@ -11,10 +11,9 @@ describe('Slider', () => {
                 max={100}
                 value={30}
                 onChange={() => {}}
-                unit="mi"
             />
         )
-        expect(screen.getByText(/Miles Driven Daily: 30 mi/)).toBeInTheDocument()
+        expect(screen.getByText(/Miles Driven Daily/)).toBeInTheDocument()
         const input = screen.getByRole('slider') as HTMLInputElement
         expect(input.value).toBe('30')
         expect(input.min).toBe('0')
@@ -30,7 +29,6 @@ describe('Slider', () => {
                 max={60}
                 value={25}
                 onChange={handleChange}
-                unit="mpg"
             />
         )
         const input = screen.getByRole('slider')
@@ -48,6 +46,7 @@ describe('Slider', () => {
                 onChange={() => {}}
             />
         )
-        expect(screen.getByText(/Test Slider: 5/)).toBeInTheDocument()
+        expect(screen.getByText('Test Slider')).toBeInTheDocument()
+        expect(screen.getByText('5')).toBeInTheDocument()
     })
 })

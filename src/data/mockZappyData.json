@@ -3,7 +3,7 @@
         "zip": "48101",
         "gasCostPerGallon": 3.85,
         "electricityCostPerKWh": 0.13,
-        "evModels": [
+        "vehicles": [
             { "name": "Chevy Bolt", "kWhPerMile": 0.28 },
             { "name": "Tesla Model 3", "kWhPerMile": 0.25 },
             { "name": "Ford Mustang Mach-E", "kWhPerMile": 0.32 },
@@ -15,7 +15,7 @@
         "zip": "90210",
         "gasCostPerGallon": 5.29,
         "electricityCostPerKWh": 0.22,
-        "evModels": [
+        "vehicles": [
             { "name": "Chevy Bolt", "kWhPerMile": 0.28 },
             { "name": "Tesla Model 3", "kWhPerMile": 0.25 },
             { "name": "Ford Mustang Mach-E", "kWhPerMile": 0.32 },
@@ -27,7 +27,7 @@
         "zip": "60606",
         "gasCostPerGallon": 4.10,
         "electricityCostPerKWh": 0.18,
-        "evModels": [
+        "vehicles": [
             { "name": "Chevy Bolt", "kWhPerMile": 0.28 },
             { "name": "Tesla Model 3", "kWhPerMile": 0.25 },
             { "name": "Ford Mustang Mach-E", "kWhPerMile": 0.32 },

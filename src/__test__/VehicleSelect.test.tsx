@@ -1,6 +1,6 @@
-// Example for Slider.test.ts
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import VehicleSelect from '../components/VehicleSelect'
 
 const evModels = [
@@ -10,30 +10,36 @@ const evModels = [
 ]
 
 describe('VehicleSelect', () => {
-    it('renders all EV model options', () => {
+    it('renders all EV model options', async () => {
         render(
             <VehicleSelect
                 selected=""
                 onChange={() => {}}
-                evModels={evModels}
+                vehicles={evModels}
             />
         )
-        expect(screen.getByText('-- Select a vehicle --')).toBeInTheDocument()
-        expect(screen.getByText('Chevy Bolt')).toBeInTheDocument()
-        expect(screen.getByText('Tesla Model 3')).toBeInTheDocument()
-        expect(screen.getByText('Nissan Leaf')).toBeInTheDocument()
+        // Placeholder should be present
+        expect(screen.getByText('Vehicle')).toBeInTheDocument()
+        // Open dropdown using combobox role
+        await userEvent.click(screen.getByRole('combobox'))
+
+        expect(await screen.getByText('Chevy Bolt')).toBeInTheDocument()
+        expect(await screen.getByText('Tesla Model 3')).toBeInTheDocument()
+        expect(await screen.getByText('Nissan Leaf')).toBeInTheDocument()
     })
 
-    it('calls onChange when a model is selected', () => {
+    it('calls onChange when a model is selected', async () => {
         const handleChange = vi.fn()
         render(
             <VehicleSelect
                 selected=""
                 onChange={handleChange}
-                evModels={evModels}
+                vehicles={evModels}
             />
         )
-        fireEvent.change(screen.getByLabelText(/EV Model/i), { target: { value: 'Tesla Model 3' } })
+        // Open dropdown and select an option
+        await userEvent.click(screen.getByRole('combobox'))
+        await userEvent.click(await screen.findByText('Tesla Model 3'))
         expect(handleChange).toHaveBeenCalledWith('Tesla Model 3')
     })
 
@@ -42,10 +48,10 @@ describe('VehicleSelect', () => {
             <VehicleSelect
                 selected="Nissan Leaf"
                 onChange={() => {}}
-                evModels={evModels}
+                vehicles={evModels}
             />
         )
-        const select = screen.getByLabelText(/EV Model/i) as HTMLSelectElement
-        expect(select.value).toBe('Nissan Leaf')
+        // Selected value should be visible
+        expect(screen.getByText('Nissan Leaf')).toBeInTheDocument()
     })
 })

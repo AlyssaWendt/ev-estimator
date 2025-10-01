@@ -1,0 +1,146 @@
+@use 'sass:color';
+@use '../styles/variables' as v;
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 0;
+    margin-block-start: -110px;
+    position: relative;
+    z-index: 2;
+    
+
+    .tabButtons {
+        display: flex;
+        gap: 6px;
+
+        button {
+            background-clip: padding-box;
+            background: v.$color-secondary;
+            border-bottom: none;
+            color: #a7a7a7;
+            font-weight: 600;
+            margin: 0;
+            padding-block: 12px 16px;
+            padding-inline: 56px;
+            position: relative;
+            transform: skewX(-18deg);
+            z-index: 1;
+            overflow: hidden;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+            
+            // Shine effect
+            &::before {
+                background: rgba(255,255,255,0.7);
+                box-shadow: 0 0 50px 30px #fff;
+                content: '';
+                display: block;
+                height: 100%;
+                inset-block-start: 0;
+                inset-inline-start: 0;
+                opacity: 0;
+                position: absolute;
+                transform: skewX(-20deg);
+                width: 0px;
+            }
+
+            &:hover {
+                background: v.$color-electricG;
+                border-color: v.$color-text;
+                color: v.$color-text;
+            }
+
+            &:hover::before {
+                animation: shineGreen 0.35s linear;
+            }
+
+            &:active {
+                background: color.adjust(v.$color-electricG, $lightness: -15%);
+                border-color: v.$color-text;
+                color: #fff;
+            }
+
+            span {
+                display: inline-block;
+                transform: skewX(18deg);
+            }
+        }
+    }
+}
+
+@keyframes shineGreen {
+    0% {
+        inset-inline-start: 0;
+        opacity: 0;
+        width: 0;
+    }
+    20% {
+        opacity: 1;
+        width: 40%;
+    }
+    80% {
+        inset-inline-start: 60%;
+        opacity: 1;
+        width: 40%;
+    }
+    100% {
+        inset-inline-start: 100%;
+        opacity: 0;
+        width: 0;
+    }
+}
+
+.summaryTitle {
+    font-size: 36px;
+    font-style: italic;
+    margin-block-end: 16px;
+    margin-block-start: 44px;
+    text-align: center;
+}
+
+.statList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-block-start: 64px;
+
+    .statSavingItem {
+        position: relative;
+        text-align: center;
+
+        &::after {
+            background: v.$color-electricG;
+            border-radius: 2px;
+            content: "";
+            display: block;
+            height: 6px;
+            inset-block-end: -6px;
+            inset-inline-start: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 64%;
+        }
+
+        .label,
+        .value {
+            font-size: 32px;
+            font-weight: 800;
+        }
+    }
+
+    .statItem {
+        text-align: center;
+
+        .label { 
+            color: v.$color-grey-text;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .value {
+            font-size: 24px;
+            font-weight: 800;
+            padding-inline-start: 3px;
+        }
+    }
+}

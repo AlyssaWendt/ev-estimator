@@ -16,7 +16,7 @@ describe('VehicleCard', () => {
     it('renders the vehicle name', () => {
         render(<VehicleCard model={mockModel} />)
 
-        expect(screen.getByText('Chevy Bolt')).toBeInTheDocument()
+        expect(screen.getByAltText('Chevy Bolt')).toBeInTheDocument()
     })
 
     it('renders the correct image for a known model', () => {

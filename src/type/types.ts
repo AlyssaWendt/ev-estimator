@@ -11,7 +11,6 @@ export interface EstimateInput {
 
 export interface EVModel {
   name: string
-  kWhPerMile: number
   image: string
 }
 
@@ -31,20 +30,19 @@ export interface SliderProps {
     max: number
     value: number
     onChange: (val: number) => void
-    unit?: string
 }
 
 export interface VehicleSelectProps {
     selected: string
     onChange: (model: string) => void
-    evModels: EVModel[]
+    vehicles: { name: string; kWhPerMile: number }[];
 }
 
 export interface ZappyData {
     zip: string
     gasCostPerGallon: number
     electricityCostPerKWh: number
-    evModels: EVModel[]
+    vehicles: { name: string; kWhPerMile: number }[];
 }
 
 export interface ZipInputProps {

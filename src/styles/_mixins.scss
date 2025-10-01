@@ -1,0 +1,112 @@
+@use './variables' as v;
+
+// ----- Helpers
+@mixin container {
+  margin-inline: auto;
+  max-width: 1400px;
+  padding-inline: 16px;
+}
+
+@mixin stack($gap: 16px) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+// ----- Flexbox Estimator Layout
+@mixin estimator-layout {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  // ≥ 800px: side-by-side
+  @media (min-width: v.$bp-md) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .left {
+    @include stack(1.5rem);
+    align-items: center;
+    flex: 1 1 40%;
+
+    .vehicleCard {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-block: 16px;
+      padding-inline: 20px;
+
+      .vehicleHeader {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+    .selectRow { 
+      align-items: center; 
+      display: flex; 
+      gap: 8px; 
+    }
+
+    .vehicleImg { 
+      height: auto; 
+      object-fit: contain; 
+      width: 100%; 
+    }
+  }
+
+    .compare {
+      @include stack(16px);
+
+      .sectionTitle { 
+        font-weight: 600; 
+      }
+
+      .zipRow {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+      }
+
+      .sliderRow {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+      }
+
+      .brandRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+      }
+
+    .powered { 
+      font-size: 12.8px; 
+      color: #6b7280; 
+      }
+    }
+  }
+
+  .right {
+    flex: 1 1 40%;
+
+    .resultsCard {
+      border-radius: 12px;
+      border: 1px solid v.$color-text;
+      box-shadow: 0 8px 24px 0 v.$color-text;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-block-start: 84px;
+      margin-inline-end: 20px;
+      min-height: 500px;
+      padding-block: 64px 20px;
+      padding-inline: 20px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

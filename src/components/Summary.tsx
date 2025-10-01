@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import type { ResultSummaryProps } from '../type/types'
+import layout from '../features/estimator.module.scss'
+import styles from './summary.module.scss'
 
 const TABS = [
     { label: 'Monthly', value: 'monthly' },
@@ -36,27 +38,44 @@ export default function ResultSummary({ results }: ResultSummaryProps) {
     const summary = getSummary()
 
     return (
-        <div className='result-summary'>
-            <div className='tab-buttons' style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-                {TABS.map(tab => (
-                    <button
-                        key={tab.value}
-                        onClick={() => setActiveTab(tab.value)}
-                        style={{
-                            fontWeight: activeTab === tab.value ? 'bold' : 'normal',
-                            textDecoration: activeTab === tab.value ? 'underline' : 'none'
-                        }}
-                    >
-                        {tab.label}
-                    </button>
-                ))}
+        <div className={layout.resultsCard}>
+            <div className={styles.tabs}>
+                <div className={styles.tabButtons}>
+                    {TABS.map(tab => (
+                        <button
+                            key={tab.value}
+                            onClick={() => setActiveTab(tab.value)}
+                            className={activeTab === tab.value ? styles.active : ''}
+                        >
+                            <span>{tab.label}</span>
+                        </button>
+                    ))}
+                </div>
             </div>
-            <h2>Estimated {TABS.find(t => t.value === activeTab)?.label} Savings</h2>
-            <p><strong>Gas Cost:</strong> ${summary.gasAnnualCost.toFixed(2)}</p>
-            <p><strong>EV Cost:</strong> ${summary.evAnnualCost.toFixed(2)}</p>
-            <p><strong>Fuel Savings:</strong> ${summary.fuelSavings.toFixed(2)}</p>
-            <p><strong>Maintenance Savings:</strong> ${summary.maintenanceSavings.toFixed(2)}</p>
-            <h3><strong>Total Savings:</strong> ${summary.totalSavings.toFixed(2)}</h3>
+            <h2 className={styles.summaryTitle}> Estimated {TABS.find(t => t.value === activeTab)?.label} Savings</h2>
+            <div className={styles.statList}>
+                <div className={styles.statSavingItem}>
+                    <span className={styles.label}><strong>Total Savings:</strong></span>
+                    <span className={styles.value}><strong>${summary.totalSavings.toFixed(2)}</strong></span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.label}>Gas Cost:</span>
+                    <span className={styles.value}>${summary.gasAnnualCost.toFixed(2)}</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.label}>EV Cost:</span>
+                    <span className={styles.value}>${summary.evAnnualCost.toFixed(2)}</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.label}>Fuel Savings:</span>
+                    <span className={styles.value}>${summary.fuelSavings.toFixed(2)}</span>
+                </div>
+                <div className={styles.statItem}>
+                    <span className={styles.label}>Maintenance Savings:</span>
+                    <span className={styles.value}>${summary.maintenanceSavings.toFixed(2)}</span>
+                </div>
+
+            </div>
         </div>
     )
 }

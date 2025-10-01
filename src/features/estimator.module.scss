@@ -1,0 +1,112 @@
+@use 'sass:color';
+@use '../styles/variables' as v;
+@use '../styles/mixins' as cse;
+
+.MainContainer {
+    background: rgb(41, 40, 40);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+
+    .title{
+        color: v.$color-bg;
+        text-align: center;
+        width: 100%;
+
+        h1 {
+            font-family: v.$font-google;
+            font-weight: v.$weight-bold;
+        }
+
+        p {
+            font-family: v.$font-google;
+            font-weight: v.$weight-regular;
+        }
+    }
+
+    .estimator {
+        background-color: v.$color-bg;
+        border-radius: 8px;
+        color: v.$color-text;
+        font-family: v.$font-google;
+        font-weight: v.$weight-regular;
+        margin-inline: 80px;
+        padding-block: 16px 32px;
+
+        .grid {
+            @include cse.estimator-layout;
+        }
+
+        .calculateButton {
+            background: transparent;
+            border: 2px solid v.$color-text;
+            color: v.$color-text;
+            font-family: v.$font-google;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: v.$weight-bold;
+            height: 36px;
+            line-height: 0.5;
+            padding: 12px 32px;
+            transform: skewX(-18deg);
+            width: 300px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+
+            span {
+                display: inline-block;
+                transform: skewX(18deg);
+            }
+
+            // Shine effect
+            &::before {
+                content: '';
+                display: block;
+                width: 0px;
+                height: 86%;
+                position: absolute;
+                top: 7%;
+                left: 0%;
+                opacity: 0;
+                background: #fff;
+                box-shadow: 0 0 50px 30px #fff;
+                transform: skewX(-20deg);
+                transition: none;
+            }
+
+            &:hover {
+                background: v.$color-electricG;
+                color: v.$color-text;
+                border-color: v.$color-text;
+            }
+
+            &:hover::before {
+                animation: shineGreen 0.5s linear;
+            }
+
+            &:active {
+                background: color.adjust(v.$color-electricG, $lightness: -15%);
+                color: #fff;
+                border-color: v.$color-text;
+            }
+        }
+    }
+}
+
+// Keyframes for the shine effect
+@keyframes shineGreen {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}

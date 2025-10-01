@@ -21,7 +21,12 @@ export default function Estimator() {
 
     const zipData: ZappyData[] = mockData as ZappyData[]
     const entry = zipData.find(z => z.zip === zip)
-     const selectedEV = evModels.find((m) => m.name === selectedModel)
+    const selectedVehicle = entry?.vehicles.find((m) => m.name === selectedModel)
+    const globalModel = evModels.find((m) => m.name === selectedModel)
+
+    const selectedEV = selectedVehicle
+        ? { ...selectedVehicle, image: globalModel?.image ?? '' }
+        : undefined
 
     const handleCalculate = () => {
         setError(null)
@@ -67,7 +72,7 @@ export default function Estimator() {
         mpg,
         gasCost: entry.gasCostPerGallon,
         electricityCost: entry.electricityCostPerKWh,
-        kWhPerMile: selectedEV.kWhPerMile,
+        kWhPerMile: selectedVehicle?.kWhPerMile ?? 0,
         maintenanceSavingsPerYear: 500
     }
 
@@ -79,51 +84,72 @@ export default function Estimator() {
     }, [])
 
     return (
-        <div className='container-main'>
-            <div className='estimator'>
+        < div className={styles.MainContainer} >
+            <div className={styles.title}>
                 <h1>EV Savings Estimator</h1>
                 <p>See how much you could save with an EV.</p>
-                <VehicleSelect
-                    selected={selectedModel}
-                    onChange={value => {
-                        setSelectedModel(value)
+            </div>
+            <section className={styles.estimator}>
+                <div className={styles.grid}>
+                    {/* Left column */}
+                    <div className={styles.left}>
+                    
+
+                    <VehicleSelect
+                        selected={selectedModel}
+                        onChange={value => {
+                            setSelectedModel(value)
+                            setError(null)
+                        }}
+                        vehicles={entry?.vehicles ?? []}
+                    />
+
+                    <VehicleCard model={selectedEV ?? { name: 'Select a model', image: '' }} />
+
+                    <ZipInput
+                        zip={zip}
+                        onChange={value => {
+                        setZip(value)
                         setError(null)
-                    }}
-                    evModels={evModels}
-                />
-                <VehicleCard model={selectedEV ?? { name: 'Select a model', kWhPerMile: 0.28, image: '' }} />
-                <ZipInput zip={zip} onChange={value => {
-                    setZip(value)
-                    setError(null)
-                }} />
-                <Slider
-                    label="Miles Driven Daily"
-                    min={0}
-                    max={100}
-                    value={milesPerDay}
-                    onChange={value => {
+                        }}
+                    />
+
+                    <Slider
+                        label="Miles Driven Daily"
+                        min={0}
+                        max={100}
+                        value={milesPerDay}
+                        onChange={value => {
                         setMilesPerDay(value)
                         setError(null)
-                    }}
-                    unit="mi"
-                />
-                <Slider
-                    label="MPG (Gas Vehicle)"
-                    min={10}
-                    max={60}
-                    value={mpg}
-                    onChange={value => {
+                        }}
+                    />
+
+                    <Slider
+                        label="Miles Per Gallon (MPG)"
+                        min={10}
+                        max={75}
+                        value={mpg}
+                        onChange={value => {
                         setMPG(value)
                         setError(null)
-                    }}
-                    unit="mpg"
-                />
+                        }}
+                    />
 
-                <button className='calculate-button' onClick={handleCalculate}>Calculate</button>
-                {error && <p className={styles.error}>{error}</p>}
-            </div>
+                    <button className={styles.calculateButton} onClick={handleCalculate}>
+                        <span>Calculate</span>
+                    </button>
 
-            {results && <ResultSummary results={results} />}
-        </div>
+                    {error && <p className={styles.error}>{error}</p>}
+                    </div>
+
+                    {/* Right column */}
+                    <aside className={styles.right}>
+                    {results && <ResultSummary results={results} />}
+                    </aside>
+
+                </div>
+            </section>
+        </div >
     )
 }

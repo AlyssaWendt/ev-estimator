@@ -6,7 +6,7 @@ import ZipInput from '../components/ZipInput'
 describe('ZipInput', () => {
     it('renders with the correct value', () => {
         render(<ZipInput zip="12345" onChange={() => {}} />)
-        const input = screen.getByPlaceholderText(/Enter ZIP/i) as HTMLInputElement
+        const input = screen.getByPlaceholderText(/Your ZIP code/i) as HTMLInputElement
 
         expect(input.value).toBe('12345')
     })
@@ -14,7 +14,7 @@ describe('ZipInput', () => {
     it('calls onChange with the new value when changed', () => {
         const handleChange = vi.fn()
         render(<ZipInput zip="" onChange={handleChange} />)
-        const input = screen.getByPlaceholderText(/Enter ZIP/i)
+        const input = screen.getByPlaceholderText(/Your ZIP code/i)
         fireEvent.change(input, { target: { value: '48101' } })
 
         expect(handleChange).toHaveBeenCalledWith('48101')
@@ -22,7 +22,7 @@ describe('ZipInput', () => {
 
     it('has maxlength and pattern attributes', () => {
         render(<ZipInput zip="" onChange={() => {}} />)
-        const input = screen.getByPlaceholderText(/Enter ZIP/i)
+        const input = screen.getByPlaceholderText(/Your ZIP code/i)
 
         expect(input).toHaveAttribute('maxLength', '5')
         expect(input).toHaveAttribute('pattern', '\\d{5}')

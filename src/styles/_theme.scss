@@ -1,0 +1,21 @@
+/* Define theme variables in your root SCSS file (e.g., styles/_variables.scss or styles/_theme.scss) */
+:root {
+  --color-bg: #f5f7f8;
+  --color-text: #111827;
+  --color-electricG: #39FF14;
+  --color-secondary: #e4e4e4;
+  --font-google: 'Tomorrow', sans-serif;
+}
+
+/* Use these variables in your SCSS files */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-google);
+}
+
+/* Access CSS variables in JS/TS */
+// In your React component:
+// const root = document.documentElement;
+// const electricGreen = getComputedStyle(root).getPropertyValue('--color-electricG');
+// Use electricGreen in your JS-based styles

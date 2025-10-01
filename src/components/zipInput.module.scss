@@ -1,0 +1,19 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as cse;
+
+
+.zipInput {
+    background-color: v.$color-secondary;
+    border: 2px solid v.$color-text;
+    font-family: v.$font-google;
+    font-size: 16px;
+    font-weight: v.$weight-regular;
+    height: 30px;
+    padding-inline-start: 12px;
+    width: 280px;
+
+    &:focus {
+        outline: none;
+    }
+
+}
