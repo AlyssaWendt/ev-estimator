@@ -7,7 +7,6 @@ import type { EVModel } from '../type/types'
 
 const mockModel: EVModel = {
     name: 'Chevy Bolt',
-    kWhPerMile: 0.28,
     image: '/mock/chevy.png'
 }
 
@@ -28,7 +27,7 @@ describe('VehicleCard', () => {
     })
 
     it('renders the fallback image for an unknown model', () => {
-        render(<VehicleCard model={{ name: 'Unknown EV', kWhPerMile: 0.3, image: '' }} />)
+        render(<VehicleCard model={{ name: 'Unknown EV', image: '' }} />)
         const img = screen.getByRole('img', { name: /unknown ev/i })
 
         expect(img).toHaveAttribute('src', logo)
