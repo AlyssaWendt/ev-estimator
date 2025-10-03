@@ -89,67 +89,72 @@ export default function Estimator() {
                 <h1>EV Savings Estimator</h1>
                 <p>See how much you could save with an EV.</p>
             </div>
+
+            {error && (
+                <div className={styles.errorModalOverlay}>
+                    <div className={styles.errorModal}>
+                        <button className={styles.closeButton} onClick={() => setError(null)}>×</button>
+                        <img src="/src/assets/error-icon.png" alt="Error" className={styles.errorIcon} />
+                        <p>{error}</p>
+                    </div>
+                </div>
+            )}
             <section className={styles.estimator}>
                 <div className={styles.grid}>
                     {/* Left column */}
                     <div className={styles.left}>
-                    
+                        <VehicleSelect
+                            selected={selectedModel}
+                            onChange={value => {
+                                setSelectedModel(value)
+                                setError(null)
+                            }}
+                            vehicles={entry?.vehicles ?? []}
+                        />
 
-                    <VehicleSelect
-                        selected={selectedModel}
-                        onChange={value => {
-                            setSelectedModel(value)
+                        <VehicleCard model={selectedEV ?? { name: 'Select a model', image: '' }} />
+
+                        <ZipInput
+                            zip={zip}
+                            onChange={value => {
+                            setZip(value)
                             setError(null)
-                        }}
-                        vehicles={entry?.vehicles ?? []}
-                    />
+                            }}
+                        />
 
-                    <VehicleCard model={selectedEV ?? { name: 'Select a model', image: '' }} />
+                        <Slider
+                            label="Miles Driven Daily"
+                            min={0}
+                            max={100}
+                            value={milesPerDay}
+                            onChange={value => {
+                            setMilesPerDay(value)
+                            setError(null)
+                            }}
+                        />
 
-                    <ZipInput
-                        zip={zip}
-                        onChange={value => {
-                        setZip(value)
-                        setError(null)
-                        }}
-                    />
+                        <Slider
+                            label="Miles Per Gallon (MPG)"
+                            min={10}
+                            max={75}
+                            value={mpg}
+                            onChange={value => {
+                            setMPG(value)
+                            setError(null)
+                            }}
+                        />
 
-                    <Slider
-                        label="Miles Driven Daily"
-                        min={0}
-                        max={100}
-                        value={milesPerDay}
-                        onChange={value => {
-                        setMilesPerDay(value)
-                        setError(null)
-                        }}
-                    />
-
-                    <Slider
-                        label="Miles Per Gallon (MPG)"
-                        min={10}
-                        max={75}
-                        value={mpg}
-                        onChange={value => {
-                        setMPG(value)
-                        setError(null)
-                        }}
-                    />
-
-                    <button className={styles.calculateButton} onClick={handleCalculate}>
-                        <span>Calculate</span>
-                    </button>
-
-                    {error && <p className={styles.error}>{error}</p>}
+                        <button className={styles.calculateButton} onClick={handleCalculate}>
+                            <span>Calculate</span>
+                        </button>
                     </div>
 
                     {/* Right column */}
                     <aside className={styles.right}>
                     {results && <ResultSummary results={results} />}
                     </aside>
-
                 </div>
             </section>
-        </div >
+        </div>
     )
 }

@@ -25,6 +25,56 @@
         }
     }
 
+    .errorModalOverlay {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.45);
+        display: flex;
+        inset: 0;
+        justify-content: center;
+        position: fixed;
+        z-index: 1000;
+
+        .errorModal {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            color: v.$color-text;
+            font-family: v.$font-google;
+            font-size: 1.2rem;
+            max-width: 90vw;
+            min-width: 320px;
+            padding: 32px 24px;
+            position: relative;
+            text-align: center;
+        
+            .errorIcon {
+                display: block;
+                height: 48px;
+                margin-block-end: 16px;
+                margin-inline: auto;
+                width: 48px;
+            }
+
+            .closeButton {
+                background: none;
+                border: none;
+                color: v.$color-text;
+                cursor: pointer;
+                font-size: 2rem;
+                inset-block-start: 12px;
+                inset-inline-end: 16px;
+                line-height: 1;
+                padding: 0;
+                position: absolute;
+                transition: color 0.2s;
+                
+                &:hover {
+                    color: v.$color-electricG;
+                }
+            }
+        }
+    }
+
     .estimator {
         background-color: v.$color-bg;
         border-radius: 8px;
