@@ -144,19 +144,19 @@
             }
         }
     }
-}
 
-// Keyframes for the shine effect
-@keyframes shineGreen {
-    from {
-        opacity: 0;
-        left: 0%;
-    }
-    50% {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-        left: 100%;
+    // Keyframes for the shine effect
+    @keyframes shineGreen {
+        from {
+            opacity: 0;
+            left: 0%;
+        }
+        50% {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            left: 100%;
+        }
     }
 }
