@@ -54,10 +54,12 @@
                 animation: shineGreen 0.35s linear;
             }
 
-            &:active {
-                background: color.adjust(v.$color-electricG, $lightness: -15%);
+            &.active {
+                background: v.$color-bg;
+                border-bottom: none;
                 border-color: v.$color-text;
-                color: #fff;
+                color: v.$color-text;
+                inset-block-start: 1px;
             }
 
             span {
