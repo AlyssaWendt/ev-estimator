@@ -6,5 +6,78 @@
 	flex-direction: column;
 	gap: 4px;
 	position: relative;
+
+	// Medium screens
+	@media (max-width: v.$bp-md) {
+		gap: 3px;
+	}
+
+	// Small screens
+	@media (max-width: v.$bp-sm) {
+		gap: 2.5px;
+	}
+
+	// Extra small screens
+	@media (max-width: v.$bp-xs) {
+		gap: 2px;
+	}
+
+	select {
+		background-color: v.$color-secondary;
+		border: 2px solid v.$color-text;
+		font-family: v.$font-google;
+		font-size: 16px;
+		font-weight: v.$weight-regular;
+		padding: 8px 12px;
+		width: 280px;
+
+		// Large screens
+		@media (max-width: v.$bp-lg) {
+			width: 260px;
+			font-size: 15px;
+			padding: 7px 11px;
+		}
+
+		// Medium screens
+		@media (max-width: v.$bp-md) {
+			width: 240px;
+			font-size: 14px;
+			padding: 6px 10px;
+		}
+
+		// Small screens
+		@media (max-width: v.$bp-sm) {
+			width: 220px;
+			font-size: 13px;
+			padding: 5px 9px;
+		}
+
+		// Extra small screens
+		@media (max-width: v.$bp-xs) {
+			width: 200px;
+			font-size: 12px;
+			padding: 4px 8px;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	label {
+		font-family: v.$font-google;
+		font-weight: v.$weight-regular;
+		font-size: 14px;
+
+		// Medium screens
+		@media (max-width: v.$bp-md) {
+			font-size: 13px;
+		}
+
+		// Extra small screens
+		@media (max-width: v.$bp-xs) {
+			font-size: 12px;
+		}
+	}
 }
 

@@ -12,6 +12,34 @@
     padding-inline-start: 12px;
     width: 280px;
 
+    @media (max-width: v.$bp-lg) {
+        width: 260px;
+        font-size: 15px;
+        height: 29px;
+        padding-inline-start: 11px;
+    }
+
+    @media (max-width: v.$bp-md) {
+        width: 240px;
+        font-size: 14px;
+        height: 28px;
+        padding-inline-start: 10px;
+    }
+
+    @media (max-width: v.$bp-sm) {
+        width: 220px;
+        font-size: 13px;
+        height: 27px;
+        padding-inline-start: 9px;
+    }
+
+    @media (max-width: v.$bp-xs) {
+        width: 200px;
+        font-size: 12px;
+        height: 26px;
+        padding-inline-start: 8px;
+    }
+
     &:focus {
         outline: none;
     }

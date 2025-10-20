@@ -9,7 +9,7 @@
     min-height: 100vh;
     width: 100%;
 
-    .title{
+    .title {
         color: v.$color-bg;
         text-align: center;
         width: 100%;
@@ -17,11 +17,35 @@
         h1 {
             font-family: v.$font-google;
             font-weight: v.$weight-bold;
+            
+            @media (max-width: v.$bp-lg) {
+                font-size: 2.2rem;
+            }
+            
+            @media (max-width: v.$bp-md) {
+                font-size: 2rem;
+            }
+
+            @media (max-width: v.$bp-sm) {
+                font-size: 1.7rem;
+            }
+            
+            @media (max-width: v.$bp-xs) {
+                font-size: 1.5rem;
+            }
         }
 
         p {
             font-family: v.$font-google;
             font-weight: v.$weight-regular;
+            
+            @media (max-width: v.$bp-sm) {
+                font-size: 0.95rem;
+            }
+
+            @media (max-width: v.$bp-xs) {
+                font-size: 0.9rem;
+            }
         }
     }
 
@@ -46,13 +70,35 @@
             padding: 32px 24px;
             position: relative;
             text-align: center;
-        
+
+            // Medium screens
+            @media (max-width: 800px) {
+                font-size: 1.1rem;
+                padding: 28px 20px;
+                min-width: 280px;
+            }
+
+            // Small screens
+            @media (max-width: 400px) {
+                font-size: 1rem;
+                padding: 24px 16px;
+                min-width: 240px;
+                max-width: 95vw;
+            }
+
             .errorIcon {
                 display: block;
                 height: 48px;
                 margin-block-end: 16px;
                 margin-inline: auto;
                 width: 48px;
+
+                // Small screens
+                @media (max-width: 400px) {
+                    height: 40px;
+                    width: 40px;
+                    margin-block-end: 12px;
+                }
             }
 
             .closeButton {
@@ -67,6 +113,13 @@
                 padding: 0;
                 position: absolute;
                 transition: color 0.2s;
+
+                // Small screens
+                @media (max-width: 400px) {
+                    font-size: 1.5rem;
+                    inset-block-start: 8px;
+                    inset-inline-end: 12px;
+                }
                 
                 &:hover {
                     color: v.$color-electricG;
@@ -83,6 +136,26 @@
         font-weight: v.$weight-regular;
         margin-inline: 80px;
         padding-block: 16px 32px;
+
+        @media (max-width: v.$bp-lg) {
+            margin-inline: 60px;
+            padding-block: 14px 28px;
+        }
+
+        @media (max-width: v.$bp-md) {
+            margin-inline: 40px;
+            padding-block: 12px 24px;
+        }
+
+        @media (max-width: v.$bp-sm) {
+            margin-inline: 24px;
+            padding-block: 10px 20px;
+        }
+
+        @media (max-width: v.$bp-xs) {
+            margin-inline: 16px;
+            padding-block: 8px 16px;
+        }
 
         .grid {
             @include cse.estimator-layout;
@@ -141,6 +214,32 @@
                 background: color.adjust(v.$color-electricG, $lightness: -15%);
                 color: #fff;
                 border-color: v.$color-text;
+            }
+
+            @media (max-width: v.$bp-lg) {
+                width: 275px;
+                font-size: 17px;
+                padding: 11px 28px;
+            }
+
+            @media (max-width: v.$bp-md) {
+                width: 250px;
+                font-size: 16px;
+                padding: 10px 24px;
+            }
+
+            @media (max-width: v.$bp-sm) {
+                width: 225px;
+                font-size: 15px;
+                padding: 9px 22px;
+                height: 34px;
+            }
+
+            @media (max-width: v.$bp-xs) {
+                width: 200px;
+                font-size: 14px;
+                padding: 8px 20px;
+                height: 32px;
             }
         }
     }

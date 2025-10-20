@@ -13,7 +13,8 @@ $weight-regular: 400;
 $weight-bold: 800;
 
 // ----- Breakpoints
-$bp-sm: 400px;
-$bp-md: 800px;
-$bp-lg: 1200px;
+$bp-xs: 400px;   // Small phones
+$bp-sm: 600px;   // Large phones / small tablets
+$bp-md: 900px;   // Tablets
+$bp-lg: 1200px;  // Desktop
 
