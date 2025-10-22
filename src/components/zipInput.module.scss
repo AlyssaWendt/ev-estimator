@@ -6,34 +6,34 @@
     background-color: v.$color-secondary;
     border: 2px solid v.$color-text;
     font-family: v.$font-google;
-    font-size: 16px;
     font-weight: v.$weight-regular;
     height: 30px;
     padding-inline-start: 12px;
     width: 280px;
+    box-sizing: border-box; // Add this to match React Select
 
-    @media (max-width: v.$bp-lg) {
+    @media (max-width: v.$bp-lg-down) {
         width: 260px;
         font-size: 15px;
         height: 29px;
         padding-inline-start: 11px;
     }
 
-    @media (max-width: v.$bp-md) {
+    @media (max-width: v.$bp-md-down) {
         width: 240px;
         font-size: 14px;
         height: 28px;
         padding-inline-start: 10px;
     }
 
-    @media (max-width: v.$bp-sm) {
+    @media (max-width: v.$bp-sm-down) {
         width: 220px;
         font-size: 13px;
         height: 27px;
         padding-inline-start: 9px;
     }
 
-    @media (max-width: v.$bp-xs) {
+    @media (max-width: v.$bp-xs-down) {
         width: 200px;
         font-size: 12px;
         height: 26px;

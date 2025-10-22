@@ -6,23 +6,19 @@
   max-width: 1400px;
   padding-inline: 20px;
 
-  // Large tablets
-  @media (max-width: v.$bp-lg) {
+  @media (max-width: v.$bp-lg-down) {
     padding-inline: 16px;
   }
 
-  // Medium tablets
-  @media (max-width: v.$bp-md) {
+  @media (max-width: v.$bp-md-down) {
     padding-inline: 14px;
   }
 
-  // Small tablets/large phones
-  @media (max-width: v.$bp-sm) {
+  @media (max-width: v.$bp-sm-down) {
     padding-inline: 12px;
   }
 
-  // Small phones
-  @media (max-width: v.$bp-xs) {
+  @media (max-width: v.$bp-xs-down) {
     padding-inline: 8px;
   }
 }
@@ -32,20 +28,19 @@
   flex-direction: column;
   gap: $gap;
 
-  // Gradual gap reduction
-  @media (max-width: v.$bp-lg) {
+  @media (max-width: v.$bp-lg-down) {
     gap: calc($gap * 0.9);
   }
 
-  @media (max-width: v.$bp-md) {
+  @media (max-width: v.$bp-md-down) {
     gap: calc($gap * 0.8);
   }
 
-  @media (max-width: v.$bp-sm) {
+  @media (max-width: v.$bp-sm-down) {
     gap: calc($gap * 0.7);
   }
 
-  @media (max-width: v.$bp-xs) {
+  @media (max-width: v.$bp-xs-down) {
     gap: calc($gap * 0.6);
   }
 }
@@ -57,20 +52,19 @@
   flex-direction: column;
   gap: 32px;
 
-  // Gradual gap reduction
-  @media (max-width: v.$bp-lg) {
+  @media (max-width: v.$bp-lg-down) {
     gap: 28px;
   }
 
-  @media (max-width: v.$bp-md) {
+  @media (max-width: v.$bp-md-down) {
     gap: 24px;
   }
 
-  @media (max-width: v.$bp-sm) {
+  @media (max-width: v.$bp-sm-down) {
     gap: 20px;
   }
 
-  @media (max-width: v.$bp-xs) {
+  @media (max-width: v.$bp-xs-down) {
     gap: 16px;
   }
 
@@ -85,121 +79,20 @@
     align-items: center;
     flex: 1 1 40%;
 
-    @media (max-width: v.$bp-lg) {
+    @media (max-width: v.$bp-lg-down) {
       gap: 1.3rem;
     }
 
-    @media (max-width: v.$bp-md) {
+    @media (max-width: v.$bp-md-down) {
       gap: 1.1rem;
     }
 
-    @media (max-width: v.$bp-sm) {
+    @media (max-width: v.$bp-sm-down) {
       gap: 0.9rem;
     }
 
-    @media (max-width: v.$bp-xs) {
+    @media (max-width: v.$bp-xs-down) {
       gap: 0.75rem;
-    }
-
-    .vehicleCard {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding-block: 16px;
-      padding-inline: 20px;
-      background: v.$color-bg;
-      width: 100%;
-      max-width: 400px;
-
-      @media (max-width: v.$bp-lg) {
-        padding-block: 15px;
-        padding-inline: 18px;
-        gap: 11px;
-        max-width: 380px;
-      }
-
-      @media (max-width: v.$bp-md) {
-        padding-block: 14px;
-        padding-inline: 16px;
-        gap: 10px;
-        max-width: 350px;
-      }
-
-      @media (max-width: v.$bp-sm) {
-        padding-block: 13px;
-        padding-inline: 14px;
-        gap: 9px;
-        max-width: 300px;
-      }
-
-      @media (max-width: v.$bp-xs) {
-        padding-block: 12px;
-        padding-inline: 12px;
-        gap: 8px;
-        max-width: 280px;
-      }
-
-      .vehicleHeader {
-        font-size: 24px;
-        font-weight: 700;
-        text-align: center;
-
-        @media (max-width: v.$bp-lg) {
-          font-size: 22px;
-        }
-
-        @media (max-width: v.$bp-md) {
-          font-size: 20px;
-        }
-
-        @media (max-width: v.$bp-sm) {
-          font-size: 19px;
-        }
-
-        @media (max-width: v.$bp-xs) {
-          font-size: 18px;
-        }
-      }
-
-      .selectRow {
-        align-items: center;
-        display: flex;
-        gap: 8px;
-        justify-content: space-between;
-
-        @media (max-width: v.$bp-sm) {
-          gap: 7px;
-        }
-
-        @media (max-width: v.$bp-xs) {
-          gap: 6px;
-          flex-direction: column;
-          align-items: stretch;
-        }
-      }
-
-      .vehicleImg {
-        height: auto;
-        object-fit: contain;
-        width: 100%;
-        max-height: 200px;
-
-        @media (max-width: v.$bp-lg) {
-          max-height: 190px;
-        }
-
-        @media (max-width: v.$bp-md) {
-          max-height: 180px;
-        }
-
-        @media (max-width: v.$bp-sm) {
-          max-height: 165px;
-        }
-
-        @media (max-width: v.$bp-xs) {
-          max-height: 150px;
-        }
-      }
     }
 
     .compare {
@@ -207,19 +100,19 @@
       width: 100%;
       max-width: 400px;
 
-      @media (max-width: v.$bp-lg) {
+      @media (max-width: v.$bp-lg-down) {
         max-width: 380px;
       }
 
-      @media (max-width: v.$bp-md) {
+      @media (max-width: v.$bp-md-down) {
         max-width: 350px;
       }
 
-      @media (max-width: v.$bp-sm) {
+      @media (max-width: v.$bp-sm-down) {
         max-width: 300px;
       }
 
-      @media (max-width: v.$bp-xs) {
+      @media (max-width: v.$bp-xs-down) {
         max-width: 280px;
       }
 
@@ -228,19 +121,19 @@
         font-size: 18px;
         text-align: center;
 
-        @media (max-width: v.$bp-lg) {
+        @media (max-width: v.$bp-lg-down) {
           font-size: 17px;
         }
 
-        @media (max-width: v.$bp-md) {
+        @media (max-width: v.$bp-md-down) {
           font-size: 16px;
         }
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
           font-size: 15px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
           font-size: 14px;
         }
       }
@@ -251,11 +144,11 @@
         gap: 8px;
         justify-content: space-between;
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
           gap: 7px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
           flex-direction: column;
           gap: 6px;
           align-items: stretch;
@@ -265,11 +158,11 @@
           font-size: 14px;
           font-weight: 500;
 
-          @media (max-width: v.$bp-sm) {
+          @media (max-width: v.$bp-sm-down) {
             font-size: 13px;
           }
 
-          @media (max-width: v.$bp-xs) {
+          @media (max-width: v.$bp-xs-down) {
             font-size: 12px;
             text-align: center;
           }
@@ -282,15 +175,15 @@
         gap: 12px;
         justify-content: space-between;
 
-        @media (max-width: v.$bp-md) {
+        @media (max-width: v.$bp-md-down) {
           gap: 10px;
         }
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
           gap: 9px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
           flex-direction: column;
           gap: 8px;
           align-items: stretch;
@@ -303,11 +196,11 @@
         gap: 8px;
         justify-content: space-between;
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
           gap: 7px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
           gap: 6px;
           justify-content: center;
         }
@@ -318,11 +211,11 @@
         color: #6b7280;
         text-align: center;
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
           font-size: 12px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
           font-size: 11px;
         }
       }
@@ -339,48 +232,37 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      margin-block-start: 84px;
+      margin-block-start: 84px; // Keep this fixed - no responsive changes
       margin-inline-end: 20px;
       min-height: 500px;
+      max-height: 600px;
       padding-block: 64px 20px;
       padding-inline: 20px;
-      position: relative;
+      position: relative; // This is crucial for tab positioning
       z-index: 1;
+      transition: transform 0.2s ease;
 
-      @media (max-width: v.$bp-lg) {
-        margin-block-start: 75px;
-        margin-inline-end: 15px;
-        padding-block: 56px 18px;
-        padding-inline: 18px;
-        min-height: 450px;
-        gap: 18px;
+      // Proportional scaling instead of changing individual properties
+      @media (max-width: v.$bp-lg-down) {
+        transform: scale(0.95);
+        transform-origin: block-start inline-start;
       }
 
-      @media (max-width: v.$bp-md) {
-        margin-block-start: 60px;
+      @media (max-width: v.$bp-md-down) {
         margin-inline-end: 0;
-        padding-block: 48px 16px;
-        padding-inline: 16px;
-        min-height: 400px;
-        gap: 16px;
+        transform-origin: block-start inline-start;
+        transform: scale(0.85);
       }
 
-      @media (max-width: v.$bp-sm) {
-        margin-block-start: 50px;
-        padding-block: 42px 14px;
-        padding-inline: 14px;
-        min-height: 350px;
-        gap: 14px;
+      @media (max-width: v.$bp-sm-down) {
+        transform: scale(0.75);
+        transform-origin: block-start inline-start;
       }
 
-      @media (max-width: v.$bp-xs) {
-        margin-block-start: 40px;
-        padding-block: 36px 12px;
-        padding-inline: 12px;
-        min-height: 300px;
-        gap: 12px;
+      @media (max-width: v.$bp-xs-down) {
+        transform: scale(0.65);
+        transform-origin: block-start inline-start;
         border-radius: 8px;
-        box-shadow: 0 4px 16px 0 rgba(17, 24, 39, 0.2);
       }
     }
   }

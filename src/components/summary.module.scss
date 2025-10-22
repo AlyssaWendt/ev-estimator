@@ -5,78 +5,108 @@
     display: flex;
     justify-content: center;
     margin-block-end: 0;
-    margin-block-start: -110px;
+    margin-block-start: -109px;
     position: relative;
     z-index: 2;
 
-    @media (max-width: v.$bp-lg) {
-        margin-block-start: -95px;
+    @media (max-width: v.$bp-lg-down) {
+        margin-block-start: -104px;
+        transform: scale(0.95);
     }
 
-    @media (max-width: v.$bp-md) {
-        margin-block-start: -80px;
+    @media (max-width: v.$bp-md-down) {
+        margin-block-start: -112px;
+        transform: scale(1.25);
     }
 
-    @media (max-width: v.$bp-sm) {
-        margin-block-start: -70px;
+    @media (max-width: v.$bp-sm-down) {
+        margin-block-start: -100px;
+        transform: scale(1);
     }
 
-    @media (max-width: v.$bp-xs) {
-        margin-block-start: -60px;
+    // intermediate breakpoint
+    @media (max-width: 450px) {
+        margin-block-start: -90px;
+        transform: scale(0.8);
     }
+
+    @media (max-width: v.$bp-xs-down) {
+        margin-block-start: -85px;
+        transform: scale(0.65);
+    }
+
+    transform-origin: center top;
 
     .tabButtons {
         display: flex;
         gap: 6px;
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-md-down) {
+            gap: 5px;
+        }
+
+        @media (max-width: v.$bp-sm-down) {
             gap: 4px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        // intermediate breakpoint
+        @media (max-width: 450px) {
             gap: 3px;
+        }
+
+        @media (max-width: v.$bp-xs-down) {
+            gap: 2px;
         }
 
         button {
             background-clip: padding-box;
             background: v.$color-secondary;
-            border-bottom: none;
+            border-block-end: none;
             color: #a7a7a7;
+            font-size: 16px;
             font-weight: 600;
             margin: 0;
-            padding-inline: 56px;
+            padding-block: 12px;
+            padding-inline: 40px;
+            white-space: nowrap;
 
-            @media (max-width: v.$bp-lg) {
-                padding-block: 9.75px;
-                padding-inline: 40px;
+            @media (max-width: v.$bp-lg-down) {
                 font-size: 15px;
+                padding-block: 11px;
+                padding-inline: 36px;
             }
 
-            @media (max-width: v.$bp-md) {
+            @media (max-width: v.$bp-md-down) {
                 font-size: 14px;
-                padding-block: 6.5px;
-                padding-inline: 28px;
+                padding-block: 10px;
+                padding-inline: 32px;
             }
 
-            @media (max-width: v.$bp-sm) {
-                padding-block: 5px;
-                padding-inline: 50px;
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 13px;
-            }
-
-            @media (max-width: v.$bp-xs) {
-                padding-block: 3.5px;
+                padding-block: 9px;
                 padding-inline: 28px;
-                font-size: 12px;
             }
 
+            // intermediate breakpoint
+            @media (max-width: 450px) {
+                font-size: 12px;
+                padding-block: 8px;
+                padding-inline: 22px;
+            }
+
+            @media (max-width: v.$bp-xs-down) {
+                font-size: 11px;
+                padding-block: 7px;
+                padding-inline: 18px;
+            }
+            
+            overflow: hidden;
             position: relative;
             transform: skewX(-18deg);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, transform 0.2s;
             z-index: 1;
-            overflow: hidden;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
             
-            // Shine effect
             &::before {
                 background: rgba(255,255,255,0.7);
                 box-shadow: 0 0 50px 30px #fff;
@@ -146,25 +176,32 @@
     margin-block-start: 44px;
     text-align: center;
 
-    @media (max-width: v.$bp-lg) {
-        font-size: 32px;
-        margin-block-start: 38px;
+    @media (max-width: v.$bp-lg-down) {
+        font-size: 33px;
+        margin-block-start: 40px;
     }
 
-    @media (max-width: v.$bp-md) {
-        font-size: 28px;
+    @media (max-width: v.$bp-md-down) {
+        font-size: 30px;
+        margin-block-start: 36px;
+    }
+
+    @media (max-width: v.$bp-sm-down) {
+        font-size: 27px;
         margin-block-start: 32px;
-    }
-
-    @media (max-width: v.$bp-sm) {
-        font-size: 26px;
-        margin-block-start: 28px;
         margin-block-end: 14px;
     }
 
-    @media (max-width: v.$bp-xs) {
-        font-size: 24px;
-        margin-block-start: 24px;
+    // intermediate breakpoint
+    @media (max-width: 450px) {
+        font-size: 25px;
+        margin-block-start: 30px;
+        margin-block-end: 13px;
+    }
+
+    @media (max-width: v.$bp-xs-down) {
+        font-size: 23px;
+        margin-block-start: 28px;
         margin-block-end: 12px;
     }
 }
@@ -175,24 +212,30 @@
     gap: 16px;
     margin-block-start: 64px;
 
-    @media (max-width: v.$bp-lg) {
+    @media (max-width: v.$bp-lg-down) {
+        gap: 15px;
+        margin-block-start: 56px;
+    }
+
+    @media (max-width: v.$bp-md-down) {
+        gap: 14px;
         margin-block-start: 48px;
+    }
+
+    @media (max-width: v.$bp-sm-down) {
+        margin-block-start: 40px;
         gap: 12px;
     }
 
-    @media (max-width: v.$bp-md) {
-        margin-block-start: 40px;
+    // intermediate breakpoint
+    @media (max-width: 450px) {
+        gap: 11px;
+        margin-block-start: 36px;
+    }
+
+    @media (max-width: v.$bp-xs-down) {
         gap: 10px;
-    }
-
-    @media (max-width: v.$bp-sm) {
         margin-block-start: 32px;
-        gap: 8px;
-    }
-
-    @media (max-width: v.$bp-xs) {
-        margin-block-start: 24px;
-        gap: 6px;
     }
 
     .statSavingItem {
@@ -210,6 +253,21 @@
             position: absolute;
             transform: translateX(-50%);
             width: 64%;
+
+            @media (max-width: v.$bp-md-down) {
+                height: 5px;
+                inset-block-end: -5px;
+            }
+
+            @media (max-width: 450px) {
+                height: 4px;
+                inset-block-end: -4px;
+            }
+
+            @media (max-width: v.$bp-xs-down) {
+                height: 3px;
+                inset-block-end: -3px;
+            }
         }
 
         .label,
@@ -217,20 +275,25 @@
             font-size: 32px;
             font-weight: 800;
 
-            @media (max-width: v.$bp-lg) {
-                font-size: 29px;
+            @media (max-width: v.$bp-lg-down) {
+                font-size: 30px;
             }
 
-            @media (max-width: v.$bp-md) {
-                font-size: 26px;
+            @media (max-width: v.$bp-md-down) {
+                font-size: 28px;
             }
 
-            @media (max-width: v.$bp-sm) {
+            @media (max-width: v.$bp-sm-down) {
+                font-size: 25px;
+            }
+
+            // intermediate breakpoint
+            @media (max-width: 450px) {
                 font-size: 23px;
             }
 
-            @media (max-width: v.$bp-xs) {
-                font-size: 20px;
+            @media (max-width: v.$bp-xs-down) {
+                font-size: 21px;
             }
         }
     }
@@ -243,20 +306,25 @@
             font-size: 20px;
             font-weight: 600;
 
-            @media (max-width: v.$bp-lg) {
+            @media (max-width: v.$bp-lg-down) {
                 font-size: 19px;
             }
 
-            @media (max-width: v.$bp-md) {
+            @media (max-width: v.$bp-md-down) {
                 font-size: 18px;
             }
 
-            @media (max-width: v.$bp-sm) {
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 17px;
             }
 
-            @media (max-width: v.$bp-xs) {
+            // intermediate breakpoint
+            @media (max-width: 450px) {
                 font-size: 16px;
+            }
+
+            @media (max-width: v.$bp-xs-down) {
+                font-size: 15px;
             }
         }
 
@@ -265,19 +333,24 @@
             font-weight: 800;
             padding-inline-start: 3px;
 
-            @media (max-width: v.$bp-lg) {
+            @media (max-width: v.$bp-lg-down) {
+                font-size: 23px;
+            }
+
+            @media (max-width: v.$bp-md-down) {
                 font-size: 22px;
             }
 
-            @media (max-width: v.$bp-md) {
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 20px;
             }
 
-            @media (max-width: v.$bp-sm) {
+            // intermediate breakpoint
+            @media (max-width: 450px) {
                 font-size: 19px;
             }
 
-            @media (max-width: v.$bp-xs) {
+            @media (max-width: v.$bp-xs-down) {
                 font-size: 18px;
             }
         }

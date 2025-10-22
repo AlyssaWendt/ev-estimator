@@ -12,9 +12,18 @@ $weight-small: 100;
 $weight-regular: 400;
 $weight-bold: 800;
 
-// ----- Breakpoints
-$bp-xs: 400px;   // Small phones
-$bp-sm: 600px;   // Large phones / small tablets
+// ----- Breakpoints (min-width values)
+$bp-xs: 300px;   // Small phones
+$bp-sm: 600px;   // Large phones / small tablets  
 $bp-md: 900px;   // Tablets
 $bp-lg: 1200px;  // Desktop
+
+
+// ----- Max-width breakpoints (for max-width queries)
+$bp-xs-down: $bp-xs - 1px;   // 399px and below
+$bp-sm-down: $bp-sm - 1px;   // 599px and below
+$bp-md-down: $bp-md - 1px;   // 899px and below
+$bp-lg-down: $bp-lg - 1px;   // 1199px and below
+$bp-lg-up: $bp-lg; // 1200px and above
+
 

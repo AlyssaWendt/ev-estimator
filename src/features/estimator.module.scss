@@ -18,19 +18,19 @@
             font-family: v.$font-google;
             font-weight: v.$weight-bold;
             
-            @media (max-width: v.$bp-lg) {
+            @media (max-width: v.$bp-lg-down) {
                 font-size: 2.2rem;
             }
             
-            @media (max-width: v.$bp-md) {
+            @media (max-width: v.$bp-md-down) {
                 font-size: 2rem;
             }
 
-            @media (max-width: v.$bp-sm) {
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 1.7rem;
             }
             
-            @media (max-width: v.$bp-xs) {
+            @media (max-width: v.$bp-xs-down) {
                 font-size: 1.5rem;
             }
         }
@@ -39,11 +39,11 @@
             font-family: v.$font-google;
             font-weight: v.$weight-regular;
             
-            @media (max-width: v.$bp-sm) {
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 0.95rem;
             }
 
-            @media (max-width: v.$bp-xs) {
+            @media (max-width: v.$bp-xs-down) {
                 font-size: 0.9rem;
             }
         }
@@ -72,14 +72,14 @@
             text-align: center;
 
             // Medium screens
-            @media (max-width: 800px) {
+            @media (max-width: v.$bp-md-down) {
                 font-size: 1.1rem;
                 padding: 28px 20px;
                 min-width: 280px;
             }
 
             // Small screens
-            @media (max-width: 400px) {
+            @media (max-width: v.$bp-sm-down) {
                 font-size: 1rem;
                 padding: 24px 16px;
                 min-width: 240px;
@@ -94,7 +94,7 @@
                 width: 48px;
 
                 // Small screens
-                @media (max-width: 400px) {
+                @media (max-width: v.$bp-sm-down) {
                     height: 40px;
                     width: 40px;
                     margin-block-end: 12px;
@@ -115,7 +115,7 @@
                 transition: color 0.2s;
 
                 // Small screens
-                @media (max-width: 400px) {
+                @media (max-width: v.$bp-sm-down) {
                     font-size: 1.5rem;
                     inset-block-start: 8px;
                     inset-inline-end: 12px;
@@ -137,22 +137,22 @@
         margin-inline: 80px;
         padding-block: 16px 32px;
 
-        @media (max-width: v.$bp-lg) {
+        @media (max-width: v.$bp-lg-down) {
             margin-inline: 60px;
             padding-block: 14px 28px;
         }
 
-        @media (max-width: v.$bp-md) {
+        @media (max-width: v.$bp-md-down) {
             margin-inline: 40px;
             padding-block: 12px 24px;
         }
 
-        @media (max-width: v.$bp-sm) {
+        @media (max-width: v.$bp-sm-down) {
             margin-inline: 24px;
             padding-block: 10px 20px;
         }
 
-        @media (max-width: v.$bp-xs) {
+        @media (max-width: v.$bp-xs-down) {
             margin-inline: 16px;
             padding-block: 8px 16px;
         }
@@ -216,31 +216,92 @@
                 border-color: v.$color-text;
             }
 
-            @media (max-width: v.$bp-lg) {
+            @media (max-width: v.$bp-lg-down) {
                 width: 275px;
                 font-size: 17px;
                 padding: 11px 28px;
             }
 
-            @media (max-width: v.$bp-md) {
+            @media (max-width: v.$bp-md-down) {
                 width: 250px;
                 font-size: 16px;
                 padding: 10px 24px;
             }
 
-            @media (max-width: v.$bp-sm) {
+            @media (max-width: v.$bp-sm-down) {
                 width: 225px;
                 font-size: 15px;
                 padding: 9px 22px;
                 height: 34px;
             }
 
-            @media (max-width: v.$bp-xs) {
+            @media (max-width: v.$bp-xs-down) {
                 width: 200px;
                 font-size: 14px;
                 padding: 8px 20px;
                 height: 32px;
             }
+        }
+    }
+
+    .vehicleCard {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-block: 16px;
+        padding-inline: 20px;
+        width: 100%;
+        max-width: 400px;
+
+        @media (max-width: v.$bp-lg-down) {
+            padding-block: 15px;
+            padding-inline: 18px;
+            gap: 11px;
+            max-width: 380px;
+        }
+
+        @media (max-width: v.$bp-md-down) {
+            padding-block: 14px;
+            padding-inline: 16px;
+            gap: 10px;
+            max-width: 350px;
+        }
+
+        @media (max-width: v.$bp-sm-down) {
+            padding-block: 13px;
+            padding-inline: 14px;
+            gap: 9px;
+            max-width: 300px;
+        }
+
+        @media (max-width: v.$bp-xs-down) {
+            padding-block: 12px;
+            padding-inline: 12px;
+            gap: 8px;
+            max-width: 280px;
+        }
+    }
+
+    .vehicleImg {
+        height: auto;
+        object-fit: contain;
+        width: 100%;
+        max-height: 200px;
+
+        @media (max-width: v.$bp-lg-down) {
+            max-height: 190px;
+        }
+
+        @media (max-width: v.$bp-md-down) {
+            max-height: 180px;
+        }
+
+        @media (max-width: v.$bp-sm-down) {
+            max-height: 165px;
+        }
+
+        @media (max-width: v.$bp-xs-down) {
+            max-height: 150px;
         }
     }
 
