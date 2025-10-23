@@ -10,6 +10,7 @@ import styles from './estimator.module.scss'
 import { preloadVehicleImages } from '../utils/modelImageMap'
 import { calculateSavings } from '../utils/calculateSavings'
 import type { EstimateInput, ZappyData } from '../type/types'
+import errorIcon from '../assets/error-icon.png'
 
 export default function Estimator() {
     const [error, setError] = useState<string | null>(null)
@@ -94,7 +95,7 @@ export default function Estimator() {
                 <div className={styles.errorModalOverlay}>
                     <div className={styles.errorModal}>
                         <button className={styles.closeButton} onClick={() => setError(null)}>×</button>
-                        <img src="/src/assets/error-icon.png" alt="Error" className={styles.errorIcon} />
+                        <img src={errorIcon} alt="Error" className={styles.errorIcon} />
                         <p>{error}</p>
                     </div>
                 </div>
